@@ -12,4 +12,4 @@ spring:
     mongodb:
       database: library
   batch:
-    initialize-schema: always
+    initialize-schema: never

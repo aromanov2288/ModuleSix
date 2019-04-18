@@ -2,6 +2,7 @@ package ru.romanov.modulesix.config;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
+import org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
@@ -23,12 +24,13 @@ import ru.romanov.modulesix.domain.mysql.MySqlBook;
 import ru.romanov.modulesix.domain.mysql.MySqlComment;
 
 import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
 import java.util.HashSet;
 import java.util.Set;
 
 @Configuration
 @EnableBatchProcessing
-public class BatchConfig {
+public class BatchConfig extends DefaultBatchConfigurer {
 
     public JobBuilderFactory jobBuilderFactory;
 
@@ -38,6 +40,10 @@ public class BatchConfig {
     public BatchConfig(JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
         this.jobBuilderFactory = jobBuilderFactory;
         this.stepBuilderFactory = stepBuilderFactory;
+    }
+
+    @Override
+    public void setDataSource(DataSource dataSource) {
     }
 
     @Bean
