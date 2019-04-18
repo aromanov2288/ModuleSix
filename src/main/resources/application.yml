@@ -1,1 +1,15 @@
-
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/library?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: Baumanka1830!
+    driver-class-name: com.mysql.jdbc.Driver
+    initialization-mode: always
+  jpa:
+    hibernate:
+      ddl-auto: none
+  data:
+    mongodb:
+      database: library
+  batch:
+    initialize-schema: always
